@@ -10,7 +10,7 @@ exports.Registration = async(req,res)=>{
         res.status(200).json({status:"success",data:user})
     }
     catch(error){
-        res.status(400).json({status:"fail",data:error.message})
+        res.status(200).json({status:"fail",data:error.message})
     }
 }
 // registration end
