@@ -6,7 +6,7 @@ const ToDoController = require("../controller/ToDoController")
 
 // user api routes start
 router.post('/registration',UsersController.Registration)
-router.get('/login',UsersController.Login) 
+router.post('/login',UsersController.Login) 
 router.get('/user-profile-details', AuthVerifyMiddleWare, UsersController.ProfileDetails)
 router.post('/user-profile-update', AuthVerifyMiddleWare, UsersController.UpdateProfile)
 
