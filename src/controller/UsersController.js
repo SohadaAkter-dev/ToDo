@@ -21,10 +21,10 @@ exports.Login= async (req,res)=>{
         const reqBody = req.body;
         let user = await UsersModel.findOne({email:reqBody.email});
         if(!user){
-            return res.status(400).json({status: "fail", message: "user not found"})
+            return res.status(200).json({status: "fail", message: "user not found"})
         }
         if(user.password !== reqBody.password){
-            return res.status(400).json({status: "fail", message: "invalid password"})
+            return res.status(200).json({status: "fail", message: "invalid password"})
         }
         else{
             let payload ={
@@ -40,7 +40,7 @@ exports.Login= async (req,res)=>{
         }
     }
     catch(error){
-        res.status(400).json({status:"fail", data: "error.message"});
+        res.status(200).json({status:"fail", data: "error.message"});
     }
 }
 // login end
@@ -54,7 +54,7 @@ exports.ProfileDetails = async (req,res)=>{
         res.status(200).json({status:"success",data:user})
     }
     catch(error){
-        res.status(400).json({status:"fail", data:"error.message"})
+        res.status(200).json({status:"fail", data:"error.message"})
     }
 } 
 // profile details end 
@@ -69,7 +69,7 @@ exports.UpdateProfile = async (req,res)=>{
         res.status(200).json({status:"success",data:user})
     }
     catch(error){
-        res.status(400).json({status:"fail", data:"error.message"})
+        res.status(200).json({status:"fail", data:"error.message"})
     }
 }
 // profile update end
@@ -94,7 +94,7 @@ exports.EmailMailVerify = async(req,res)=>{
     }
     }
     catch(error){
-      res.status(400).json({status: "fail", data: error.message});
+      res.status(200).json({status: "fail", data: error.message});
     }
 }
 // email verify end
@@ -120,7 +120,7 @@ exports.OtpVerify = async(req,res)=>{
         }
     }
     catch(error){
-        res.status(400).json({status: "fail", data: error.message});
+        res.status(200).json({status: "fail", data: error.message});
     }
 }
 // otp verify end
@@ -146,7 +146,7 @@ exports.ResetPassword = async(req,res)=>{
         }
     }
     catch(error){
-        res.status(400).json({status: "fail", data: error.message});
+        res.status(200).json({status: "fail", data: error.message});
     }
 } 
 // reset password end
