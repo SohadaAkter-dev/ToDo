@@ -7,7 +7,7 @@ const route = require('./src/routes/api');
 const rateLimit = require('express-rate-limit')
 const app= express()
 
-app.use(rateLimit({windowMs:15*60*1000,max:100,
+app.use(rateLimit({windowMs:15*60*1000,max:2000,
 }))
 app.use(bodyParser.json())
 app.use(cors())
